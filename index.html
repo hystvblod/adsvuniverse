@@ -1224,7 +1224,7 @@ body.vr-body-game{
    1) APPLY UI CHROME
    ========================= */
 body.vr-body-game{
-  --vr-topbar-h: calc((var(--vr-ui-topbar-w) * var(--vr-ui-topbar-r)) + env(safe-area-inset-top) + 8px);
+  --vr-topbar-h: 0px;
 }
 
 body.vr-body-game .vr-top-actions-game{
@@ -4303,7 +4303,7 @@ body.vr-body-game[data-universe="vampire_lord"]{
   --vr-font-scn-text:  clamp(17px, 2.8vmin, 31px);
   --vr-font-choice:    clamp(18px, 2.9vmin, 31px);
 
-  --vr-topbar-h: calc(clamp(56px, 11vw, 90px) + env(safe-area-inset-top) + 8px);
+  --vr-topbar-h: 0px;
 
   --vr-vampire-hud-w: min(94vw, 980px);
   --vr-vampire-topbar-w: clamp(220px, 54vw, 420px);
@@ -4311,10 +4311,10 @@ body.vr-body-game[data-universe="vampire_lord"]{
   --vr-vampire-back-size: clamp(46px, 11vw, 76px);
   --vr-vampire-customize-size: clamp(46px, 11vw, 76px);
 
-  --vr-ui-topbar-img: url("assets/img/ui/vampire_topbar.webp");
+  --vr-ui-topbar-img: none;
   --vr-ui-hud-img: url("assets/img/ui/vampire_hud_bar.webp");
   --vr-ui-back-img: url("assets/img/ui/vampire_back.webp");
-  --vr-ui-customize-img: url("assets/img/ui/vampire_customize.webp");
+  --vr-ui-customize-img: none;
 
   --vr-vcoins-color:#F7D06B;
   --vr-vcoins-glow:rgba(210,60,60,.28);
@@ -4363,27 +4363,11 @@ body.vr-body-game[data-universe="vampire_lord"] #btn-customize .vr-top-icon{
 }
 
 body.vr-body-game[data-universe="vampire_lord"] .vr-top-actions-game{
-  position: fixed !important;
-  top: calc(14px + env(safe-area-inset-top)) !important;
-  left: 50% !important;
-  right: auto !important;
-  transform: translateX(-50%) !important;
-  width: var(--vr-vampire-topbar-w) !important;
-  height: var(--vr-vampire-topbar-h) !important;
-  padding: 0 !important;
-  margin: 0 !important;
-  gap: 0 !important;
-  display: block !important;
-  pointer-events: none !important;
-  z-index: 100000 !important;
+  display:none !important;
 }
 body.vr-body-game[data-universe="vampire_lord"] .vr-top-actions-game::before{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:url("assets/img/ui/vampire_topbar.webp") center/100% 100% no-repeat;
-  filter: drop-shadow(0 8px 16px rgba(0,0,0,0.22));
-  pointer-events:none;
+  content:none !important;
+  background:none !important;
 }
 body.vr-body-game[data-universe="vampire_lord"] .vr-top-actions-game .vr-icon-button{
   position:absolute !important;
@@ -4424,25 +4408,11 @@ body.vr-body-game[data-universe="vampire_lord"] > a.vr-icon-button[aria-label="A
 }
 
 body.vr-body-game[data-universe="vampire_lord"] #btn-customize{
-  position: fixed !important;
-  top: calc(18px + env(safe-area-inset-top)) !important;
-  right: 20px !important;
-  width:var(--vr-vampire-customize-size) !important;
-  height:var(--vr-vampire-customize-size) !important;
-  padding:0 !important;
-  margin:0 !important;
-  border:none !important;
-  background:transparent !important;
-  z-index:100002 !important;
-  pointer-events:auto !important;
+  display:none !important;
 }
 body.vr-body-game[data-universe="vampire_lord"] #btn-customize::before{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:url("assets/img/ui/vampire_customize.webp") center/100% 100% no-repeat;
-  filter: drop-shadow(0 8px 16px rgba(0,0,0,0.22));
-  pointer-events:none;
+  content:none !important;
+  background:none !important;
 }
 
 body.vr-body-game[data-universe="vampire_lord"] .vr-hud{
@@ -5351,25 +5321,6 @@ body.vr-body-game[data-universe] .vr-gauge-label{
      style="position:fixed; top:calc(10px + env(safe-area-inset-top)); left:14px; z-index:100002; pointer-events:auto;">
     <img class="vr-top-icon" src="assets/img/ui/btn_home.webp" alt="Accueil" draggable="false" />
   </a>
-
-  <button id="btn-customize" class="vr-icon-button" type="button" aria-label="" data-i18n-aria="game.customize.aria"
-     style="position:fixed; top:calc(10px + env(safe-area-inset-top)); right:14px; z-index:100002; pointer-events:auto;">
-    <img class="vr-top-icon" src="assets/img/ui/btn_customize.svg" alt="" draggable="false" />
-  </button>
-
-  <div class="vr-top-actions vr-top-actions-game" aria-label="Top actions">
-    <a class="vr-icon-button" href="profile.html" aria-label="Profil">
-      <img class="vr-top-icon" src="assets/img/ui/btn_profile.webp" alt="" draggable="false" />
-    </a>
-
-    <a class="vr-icon-button" href="settings.html" aria-label="Paramètres">
-      <img class="vr-top-icon" src="assets/img/ui/btn_settings.webp" alt="" draggable="false" />
-    </a>
-
-    <a class="vr-icon-button" href="shop.html" aria-label="Boutique">
-      <img class="vr-top-icon" src="assets/img/ui/btn_shop.webp" alt="" draggable="false" />
-    </a>
-  </div>
 
   <main class="vr-main">
     <section id="view-game" class="vr-view vr-view-active">
